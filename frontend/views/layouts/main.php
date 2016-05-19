@@ -35,8 +35,8 @@ AppAsset::register($this);
         ],
     ]);
     $menuItems = [
-        ['label' => 'Домой', 'url' => ['/site/index']],
-        ['label' => 'О нас', 'url' => ['/site/about']],
+        ['label' => 'Главная', 'url' => ['/site/index']],
+        // ['label' => 'О нас', 'url' => ['/site/about']],
     ];
 
     if (Yii::$app->user->isGuest) {
@@ -53,6 +53,7 @@ AppAsset::register($this);
 		}
 
         $menuItems[] = ['label' => 'Профиль', 'url' => ['/profile']];    
+        $menuItems[] = ['label' => 'Домой', 'url' => ['/site/home']];    
 
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')

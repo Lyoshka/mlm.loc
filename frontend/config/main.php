@@ -32,8 +32,13 @@ return [
             ],
             'google' => [
                 'class' => 'budyaga\users\components\oauth\Google',
-                'clientId' => 'XXX',
-                'clientSecret' => 'XXX',
+                'clientId' => '529541444911-pq6huma2qth5oo49g2l6dci3skijobu8.apps.googleusercontent.com',
+                'clientSecret' => 'pxpAZcQ701mQHqrkof0UM_mT',
+            ],
+	   'facebook' => [
+                'class' => 'budyaga\users\components\oauth\Facebook',
+                'clientId' => '1547058032266750',
+                'clientSecret' => 'fb7ec456a32b8e92848b0f9549fdecc7',
             ],
           ],
 
@@ -68,7 +73,6 @@ return [
             	'/unbind/<id:[\w\-]+>' => '/user/auth/unbind',
             	'/oauth/<authclient:[\w\-]+>' => '/user/auth/index'
 
-
             ],
         ],
 
@@ -78,16 +82,32 @@ return [
     	],
 
     ],
+
+
 	'modules' => [
     		'user' => [
-        	'class' => 'budyaga\users\Module',
-        	'userPhotoUrl' => 'http://boygruv.ru/uploads/user/photo',
-        	'userPhotoPath' => '@frontend/web/uploads/user/photo'
+        		'class' => 'budyaga\users\Module',
+        		'userPhotoUrl' => 'http://boygruv.ru/uploads/user/photo',
+        		'userPhotoPath' => '@frontend/web/uploads/user/photo',
+		
+			'customMailViews' => [
+            			'confirmChangeEmail' => '@common/mail/confirmChangeEmail',
+				'passwordResetToken' => '@common/mail/passwordResetToken',
+				'confirmNewEmail' => '@common/mail/confirmNewEmail'
+        		],
     		],
 	],
 
-        
-//    ],
+/*
+	'bootstrap' => ['gii','debug'],
+	'modules' => [
+        	'gii' => [
+            	'class' => 'yii\gii\Module',
+	    	'allowedIPs' => ['89.110.62.*']
+        	],
+    	],
+                                                                       
+*/
     'params' => $params,
 ];
 

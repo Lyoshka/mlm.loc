@@ -75,6 +75,8 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
+
+
     /**
      * Logs in a user.
      *
@@ -210,4 +212,17 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+
+    /**
+     * Displays about page.
+     *
+     * @return mixed
+     */
+    public function actionHome()
+    {
+        Yii::$app->session->setFlash('success', 'Добро пожаловать.');
+        return $this->render('home');
+    }
+
+
 }

@@ -14,38 +14,9 @@ return [
     'modules' => [],
     'components' => [
         'user' => [
-
-        'identityClass' => 'budyaga\users\models\User',
-        'enableAutoLogin' => true,
-        'loginUrl' => ['/login'],
-
+            'identityClass' => 'common\models\User',
+            'enableAutoLogin' => true,
         ],
-
-
- 	'authClientCollection' => [
-          'class' => 'yii\authclient\Collection',
-          'clients' => [
-            'vkontakte' => [
-                'class' => 'budyaga\users\components\oauth\VKontakte',
-                'clientId' => 'XXX',
-                'clientSecret' => 'XXX',
-                'scope' => 'email'
-            ],
-            'google' => [
-                'class' => 'budyaga\users\components\oauth\Google',
-                'clientId' => 'XXX',
-                'clientSecret' => 'XXX',
-            ],
-            'facebook' => [
-                'class' => 'budyaga\users\components\oauth\Facebook',
-                'clientId' => 'XXX',
-                'clientSecret' => 'XXX',
-            ],
-	  ],
-	],
-
-
-
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
@@ -63,37 +34,9 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-          
-	                '/signup' => '/user/user/signup',
-            		'/login' => '/user/user/login',
-            		'/logout' => '/user/user/logout',
-            		'/requestPasswordReset' => '/user/user/request-password-reset',
-            		'/resetPassword' => '/user/user/reset-password',
-            		'/profile' => '/user/user/profile',
-            		'/retryConfirmEmail' => '/user/user/retry-confirm-email',
-            		'/confirmEmail' => '/user/user/confirm-email',
-            		'/unbind/<id:[\w\-]+>' => '/user/auth/unbind',
-            		'/oauth/<authclient:[\w\-]+>' => '/user/auth/index'
-
-
-		  ],
+            ],
         ],
-
-
- 	'authManager' => [
-           'class' => 'yii\rbac\DbManager',
-    	],
-    ],
-
-	'modules' => [
-    	'user' => [
-        	'class' => 'budyaga\users\Module',
-        	'userPhotoUrl' => 'http://boygruv.ru/uploads/user/photo',
-        	'userPhotoPath' => '@frontend/web/uploads/user/photo'
-    		],
-	],
-
         
-//    ],
+    ],
     'params' => $params,
 ];
