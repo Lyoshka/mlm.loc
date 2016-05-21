@@ -17,6 +17,7 @@ return [
         	'identityClass' => 'budyaga\users\models\User',
         	'enableAutoLogin' => true,
         	'loginUrl' => ['/login'],
+		//'on '. \yii\web\User::EVENT_AFTER_LOGIN => [$this, 'main/index']
 
         ],
 
@@ -71,7 +72,8 @@ return [
             	'/retryConfirmEmail' => '/user/user/retry-confirm-email',
             	'/confirmEmail' => '/user/user/confirm-email',
             	'/unbind/<id:[\w\-]+>' => '/user/auth/unbind',
-            	'/oauth/<authclient:[\w\-]+>' => '/user/auth/index'
+            	'/oauth/<authclient:[\w\-]+>' => '/user/auth/index',
+		'/main' => '/main/index'
 
             ],
         ],
@@ -103,11 +105,11 @@ return [
 	'modules' => [
         	'gii' => [
             	'class' => 'yii\gii\Module',
-	    	'allowedIPs' => ['89.110.62.*']
+	    	'allowedIPs' => ['89.110.62.*','95.140.92.*']
         	],
     	],
-                                                                       
-*/
+*/                                                                       
+
     'params' => $params,
 ];
 

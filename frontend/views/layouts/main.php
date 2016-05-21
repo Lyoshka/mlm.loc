@@ -11,6 +11,8 @@ use frontend\assets\AppAsset;
 use common\widgets\Alert;
 
 AppAsset::register($this);
+
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -53,7 +55,6 @@ AppAsset::register($this);
 		}
 
         $menuItems[] = ['label' => 'Профиль', 'url' => ['/profile']];    
-        $menuItems[] = ['label' => 'Домой', 'url' => ['/site/home']];    
 
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')

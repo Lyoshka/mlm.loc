@@ -18,6 +18,8 @@ use frontend\models\ContactForm;
  */
 class SiteController extends Controller
 {
+
+
     /**
      * @inheritdoc
      */
@@ -72,6 +74,10 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        if (!Yii::$app->user->isGuest) {
+            return $this->actionHome();//$this->render('home');
+        }
+
         return $this->render('index');
     }
 
@@ -213,16 +219,11 @@ class SiteController extends Controller
         ]);
     }
 
-    /**
-     * Displays about page.
-     *
-     * @return mixed
-     */
     public function actionHome()
     {
         Yii::$app->session->setFlash('success', 'Добро пожаловать.');
+
         return $this->render('home');
     }
-
 
 }
